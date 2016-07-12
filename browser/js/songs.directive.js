@@ -1,12 +1,12 @@
 
-juke.directive('songList', function (SongFactory, PlayerFactory) {
+juke.directive('songList', function (PlayerFactory) {
   return {
     restrict: 'E',
     templateUrl: '/js/songs.directive.html',
     scope: {
       songs: '='
     },
-    link: function (scope, element, attrs) {
+    link: function (scope, element) {
 
       scope.getCurrentSong = function () {
         return PlayerFactory.getCurrentSong();
@@ -25,6 +25,20 @@ juke.directive('songList', function (SongFactory, PlayerFactory) {
           PlayerFactory.resume();
         }
       };
+    }
+  };
+});
+
+juke.directive('doubleClick', function () {
+  return {
+    restrict: 'A',
+    scope: {
+      doubleClick: '&'
+    },
+    link: function (scope, element) {
+      element.on('dblclick', function (song) {
+        scope.doubleClick(song);
+      });
     }
   };
 });
