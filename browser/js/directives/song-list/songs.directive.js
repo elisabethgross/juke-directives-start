@@ -2,7 +2,7 @@
 juke.directive('songList', function (PlayerFactory) {
   return {
     restrict: 'E',
-    templateUrl: '/js/songs.directive.html',
+    templateUrl: '/js/directives/song-list/songs.directive.html',
     scope: {
       songs: '='
     },
