@@ -6,7 +6,7 @@ juke.directive('songList', function (PlayerFactory) {
     scope: {
       songs: '='
     },
-    link: function (scope, element) {
+    link: function (scope) {
 
       scope.getCurrentSong = function () {
         return PlayerFactory.getCurrentSong();
